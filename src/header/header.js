@@ -47,6 +47,10 @@ const styles = theme => ({
       marginRight : "20px"
     },
 
+    "& i" : {
+      fontSize : "20px"
+    },
+
     "& input" :{
       font: "15px roboto",
       border : "none",
@@ -100,6 +104,12 @@ class Header extends React.Component {
     );
   } 
 
+  handleClick(){
+    this.setState({
+      open : !this.state.open,
+    });
+  }
+
 
   render() {
     const {classes} = this.props;
@@ -110,8 +120,8 @@ class Header extends React.Component {
           className={classNames(classes.appBar, this.state.open && classes.appBarShift)}
           >
         <div className={classes.logo}>
-          <span>Laundry King</span>
-          <i className="fas fa-bars"></i>
+          <i className="fas fa-bars" onClick={this.handleClick.bind(this)} ></i>
+          <span>Laundry King</span> 
           <SearchBox />
         </div>
         <div className={classes.profile}>

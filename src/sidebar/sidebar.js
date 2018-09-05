@@ -29,7 +29,7 @@ class Sidebar extends React.Component {
 				className="sidebar"
 				>
 
-
+				<div>  </div>
 				{this.sidebarItems()}
 			</Drawer>
 		)
