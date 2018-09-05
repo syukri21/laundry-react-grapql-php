@@ -1,5 +1,6 @@
 import React from "react";
 import Drawer from '@material-ui/core/Drawer';
+import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
 
 const sidebarItems = [
@@ -12,6 +13,32 @@ const sidebarItems = [
 
 ];
 
+const drawerWidth = 240;
+
+
+const styles = theme => ({
+  drawerPaper: {
+    position: 'relative',
+    whiteSpace: 'nowrap',
+    width: drawerWidth,
+    transition: theme.transitions.create('width', {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.enteringScreen,
+    }),
+  },
+  drawerPaperClose: {
+    overflowX: 'hidden',
+    transition: theme.transitions.create('width', {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen,
+    }),
+    width: theme.spacing.unit * 7,
+    [theme.breakpoints.up('sm')]: {
+      width: theme.spacing.unit * 9,
+    },
+  },
+})
+
 class Sidebar extends React.Component {
 
 	sidebarItems(){
@@ -23,10 +50,15 @@ class Sidebar extends React.Component {
 	}
 
 	render(){
+		const {openState, classes, theme} = this.props;
+		console.log(this.props);
 		return(
 			<Drawer  
 				variant="permanent" 
-				className="sidebar"
+				classes={{
+		            paper: classNames(classes.drawerPaper, !openState && classes.drawerPaperClose),
+		        }}
+		        open={openState};
 				>
 
 				<div>  </div>
@@ -36,4 +68,4 @@ class Sidebar extends React.Component {
 	}
 }
 
-export default Sidebar;
+export default withStyles(styles)(Sidebar);

@@ -23,7 +23,7 @@ const styles = theme => ({
     gridTemplateColumns: "1fr 1fr",
     height: "50px",
     alignItems: "center",
-    padding: "0 50px",
+    padding: "0 30px",
     backgroundColor : "#7E57C2",
     transition: theme.transitions.create(['width', 'margin'], {
       easing: theme.transitions.easing.sharp,
@@ -48,7 +48,8 @@ const styles = theme => ({
     },
 
     "& i" : {
-      fontSize : "20px"
+      fontSize : "20px",
+      cursor: "pointer"
     },
 
     "& input" :{
@@ -108,12 +109,12 @@ class Header extends React.Component {
     this.setState({
       open : !this.state.open,
     });
+    this.props.openState(this.state.open);
   }
 
 
   render() {
     const {classes} = this.props;
-
     return (
      <AppBar
           position="absolute"

@@ -15,11 +15,27 @@ const sessionid = gql`
 
 class App extends React.Component {
 
+  constructor (){
+    super()
+    this.state = {
+      open : false
+    }
+  }
+  
+
+  openState(isOpen){
+    this.setState({
+      open : isOpen
+    });
+  }
+
+ 
+
   render() {
     return (
       <div>
-        <Header {...this.props}  />
-        <Sidebar />
+        <Header {...this.props}  openState = {this.openState.bind(this)}  />
+        <Sidebar openState={this.state.open} />
         <main></main>
       </div>
     );
