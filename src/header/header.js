@@ -63,6 +63,16 @@ const styles = theme => ({
   profile : {
     display: "flex",
     justifySelf: "flex-end",
+
+    "& span"  : {
+      marginRight: "10px",
+      display: "flex",
+      alignItems: "center",
+    },
+
+    "& i" : {
+      fontSize: "30px"
+    }
   }
 })
 
