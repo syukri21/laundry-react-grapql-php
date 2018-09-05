@@ -27,11 +27,13 @@ class App extends React.Component {
     this.setState({
       open : isOpen
     });
+    console.log("in function",isOpen);
   }
 
  
 
   render() {
+    console.log("in render parent",this.state.open);
     return (
       <div>
         <Header {...this.props}  openState = {this.openState.bind(this)}  />

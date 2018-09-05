@@ -106,12 +106,15 @@ class Header extends React.Component {
   } 
 
   handleClick(){
+    this.props.openState(!this.state.open);
     this.setState({
       open : !this.state.open,
     });
-    this.props.openState(this.state.open);
   }
 
+
+
+  
 
   render() {
     const {classes} = this.props;

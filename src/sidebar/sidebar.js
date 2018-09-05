@@ -51,14 +51,14 @@ class Sidebar extends React.Component {
 
 	render(){
 		const {openState, classes, theme} = this.props;
-		console.log(this.props);
+		console.log(openState);
 		return(
 			<Drawer  
 				variant="permanent" 
 				classes={{
 		            paper: classNames(classes.drawerPaper, !openState && classes.drawerPaperClose),
 		        }}
-		        open={openState};
+		        open={openState}
 				>
 
 				<div>  </div>
